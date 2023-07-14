@@ -2,11 +2,8 @@ package io.jscode.db.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 import io.jscode.db.entity.AdmiCategoria;
 
-@Service
 public interface DBAdmiCategoriaService {
 	List<AdmiCategoria> getAll();
 	AdmiCategoria getById(Long id);

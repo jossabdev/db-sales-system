@@ -18,6 +18,7 @@
 
 	<properties>
 		<version>0.0.1-RELEASE</version>
+		<version.ms-core-sales-util>0.0.1-RELEASE</version.ms-core-sales-util>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
@@ -60,11 +61,28 @@
 			<artifactId>postgresql</artifactId>
 			<version>42.6.0</version>
 		</dependency>
-	    <dependency>
+		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-jsr310</artifactId>
 			<version>2.15.2</version>
 		</dependency>
-	</dependencies>
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.10.1</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jscode</groupId>
+			<artifactId>ms-core-sales-util</artifactId>
+			<version>${version.ms-core-sales-util}</version>
+		</dependency>
+	
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>5.1.6.RELEASE</version>
+		</dependency>
+ </dependencies>
 
 </project>

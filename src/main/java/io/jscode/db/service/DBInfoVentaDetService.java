@@ -7,6 +7,7 @@ import io.jscode.db.entity.InfoVentaDet;
 public interface DBInfoVentaDetService {
 	List<InfoVentaDet> getAll();
 	InfoVentaDet getById(Long id);
+	InfoVentaDet getBy(InfoVentaDet ventaDet);
 	InfoVentaDet save(InfoVentaDet ventaDet);
 	void update(InfoVentaDet ventaDet);
 	void delete(InfoVentaDet ventaDet);

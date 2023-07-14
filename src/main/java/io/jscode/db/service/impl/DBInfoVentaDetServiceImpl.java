@@ -53,4 +53,9 @@ public class DBInfoVentaDetServiceImpl implements DBInfoVentaDetService {
 		infoVentaDetRepository.deleteById(id);
 	}
 
+	@Override
+	public InfoVentaDet getBy(InfoVentaDet ventaDet) {
+		return infoVentaDetRepository.findOne(Example.of(ventaDet)).get();
+	}
+
 }

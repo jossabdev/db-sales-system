@@ -3,7 +3,7 @@ package io.jscode.db.entity;
 import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,11 +13,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "t_info_venta_det", schema = "usr_admin")
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 public class InfoVentaDet {
 	
 	@Id
@@ -27,7 +31,7 @@ public class InfoVentaDet {
 	
 	@ManyToOne
 	@JoinColumn(name = "venta_id", nullable = false, updatable = false)
-	@JsonIgnore
+	@JsonIgnoreProperties(value = {"detalleVenta"}, allowSetters = true)
 	private InfoVentaCab venta;
 	
 	@ManyToOne

@@ -15,18 +15,22 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "t_admi_categoria", schema = "usr_admin")
+@Table(name = "t_admi_rol", schema = "usr_admin")
 @Getter
 @Setter
 @NoArgsConstructor
-public class AdmiCategoria {
+public class AdmiRol {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_categoria")
-	private Long idCategoria;
+	@Column(name = "id_rol")
+	private Long idRol;
 	
-	@Column(name = "nombre_categoria", length = 64, nullable = false)
-	private String nombreCategoria;
+	@Column(name = "rol", nullable = false, length = 20)
+	private String rol;
+	
+	@Column(name = "descripcion", nullable = false, length = 20)
+	private String descripcion;
 	
 	@Column(name = "estado", length = 12, nullable = false)
 	private String estado;

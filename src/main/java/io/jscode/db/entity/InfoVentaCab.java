@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -13,11 +14,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "t_info_venta_cab", schema = "usr_admin")
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 public class InfoVentaCab {
 	
 	@Id
@@ -71,6 +76,7 @@ public class InfoVentaCab {
 	private String ipUltMod;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "venta")
+	@JsonIgnoreProperties(value = {"venta"}, allowSetters = true)
 	private List<InfoVentaDet> detalleVenta;
 	
 	public void setDetalleVenta(List<InfoVentaDet> detalleVenta) {

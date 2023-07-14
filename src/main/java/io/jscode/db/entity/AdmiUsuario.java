@@ -9,24 +9,43 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "t_admi_categoria", schema = "usr_admin")
+@Table(name = "t_admi_usuario", schema = "usr_admin")
 @Getter
 @Setter
 @NoArgsConstructor
-public class AdmiCategoria {
+public class AdmiUsuario {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_categoria")
-	private Long idCategoria;
+	@Column(name = "id_usuario")
+	private Long idUsuario;
 	
-	@Column(name = "nombre_categoria", length = 64, nullable = false)
-	private String nombreCategoria;
+	@ManyToOne
+	@JoinColumn(name = "rol_id", nullable = false, updatable = false)
+	private AdmiRol rol;
+	
+	@Column(name = "usuario", nullable = false, length = 48)
+	private String usuario;
+	
+	@Column(name = "email", nullable = false, length = 48)
+	private String email;
+	
+	@Column(name = "password", nullable = false, length = 256)
+	private String password;
+	
+	@Column(name = "locked")
+	private boolean locked;
+	
+	@Column(name = "disabled")
+	private boolean disabled;
 	
 	@Column(name = "estado", length = 12, nullable = false)
 	private String estado;
@@ -50,5 +69,4 @@ public class AdmiCategoria {
 	
 	@Column(name = "ip_ult_mod")
 	private String ipUltMod;
-	
 }
