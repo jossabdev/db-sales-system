@@ -2,7 +2,6 @@ package io.jscode.db.service.impl;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +14,6 @@ public class DBAdmiRolServiceImpl implements DBAdmiRolService{
 
 	private AdmiRolRepository admiRolRepository;
 	
-	@Autowired
 	public DBAdmiRolServiceImpl(AdmiRolRepository admiRolRepository) {
 		this.admiRolRepository = admiRolRepository;
 	}

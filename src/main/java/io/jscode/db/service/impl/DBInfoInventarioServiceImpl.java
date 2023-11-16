@@ -32,8 +32,8 @@ public class DBInfoInventarioServiceImpl implements DBInfoInventarioService {
 	}
 
 	@Override
-	public void update(InfoInventario inventario) {
-		infoInventarioRepository.save(inventario);	
+	public InfoInventario update(InfoInventario inventario) {
+		return infoInventarioRepository.save(inventario);	
 	}
 
 	@Override

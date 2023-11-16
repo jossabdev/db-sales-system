@@ -12,4 +12,7 @@ import lombok.Data;
 public class SalesProperties {
 	@Value("${db.proce.registrar.venta}")
 	private String proceRegistrarVenta;
+
+	@Value("${db.proce.anular.venta}")
+	private String proceAnularVenta;
 }
