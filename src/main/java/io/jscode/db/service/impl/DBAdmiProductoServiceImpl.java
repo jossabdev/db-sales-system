@@ -57,7 +57,7 @@ public class DBAdmiProductoServiceImpl implements DBAdmiProductoService {
 
 	@Override
 	public AdmiProducto getBy(AdmiProducto producto) throws NoSuchElementException {		
-		return admiProductoRepository.findOne(Example.of(producto)).get();
+		return admiProductoRepository.findOne(Example.of(producto)).orElse(new AdmiProducto());
 	}
 
 }

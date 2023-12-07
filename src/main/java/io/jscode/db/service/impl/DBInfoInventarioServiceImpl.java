@@ -53,8 +53,8 @@ public class DBInfoInventarioServiceImpl implements DBInfoInventarioService {
 	}
 
 	@Override
-	public InfoInventario getBy(InfoInventario inventario) {		
-		return infoInventarioRepository.findOne(Example.of(inventario)).get();
+	public InfoInventario getBy(InfoInventario inventario){		
+		return infoInventarioRepository.findOne(Example.of(inventario)).orElse(new InfoInventario());
 	}
 
 }

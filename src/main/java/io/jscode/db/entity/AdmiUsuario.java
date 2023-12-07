@@ -38,7 +38,7 @@ public class AdmiUsuario {
 	@Column(name = "nombre", nullable = false, length = 100)
 	private String nombre;
 	
-	@Column(name = "email", nullable = false, length = 48)
+	@Column(name = "email", nullable = true, length = 48)
 	private String email;
 	
 	@Column(name = "password", nullable = false, length = 256)
