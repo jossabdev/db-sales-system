@@ -1,0 +1,17 @@
+name: "Deploy db-sales-system"
+
+on:
+  push:
+    branches: ["test"]
+
+jobs:
+  deploy-db-sales-system:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Step 1
+        run: echo "Step 1"
+      - run: echo "Step 2. Loading 40%"
+      - run: echo "Step 3. Loading 99%"
+      - run: echo "Step 4. Deploy complete"
