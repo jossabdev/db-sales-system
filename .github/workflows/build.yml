@@ -17,27 +17,17 @@ jobs:
           distribution: 'temurin'
           architecture: x64
           cache: maven
-      - name: Create libs directory
-        run: mkdir libs
-      - name: Download artifact ms-core-sales-utils
-        uses: actions/download-artifact@v4
-        with: 
-          name: Package
-          path: libs
-      - name: Install util jar manually
+      - name: Configure Maven settings.xml
         run: |
-          mvn install:install-file \
-            -Dfile=libs/ms-core-sales-util-0.0.1-RELEASE.jar \
-            -DgroupId=io.jscode \
-            -DartifactId=ms-core-sales-util \
-            -Dversion=0.0.1-RELEASE \
-            -Dpackaging=jar
+          echo '<settings>
+                  <servers>
+                    <server>
+                      <id>github</id>
+                      <username>${{ github.actor }}</username>
+                      <password>${{ secrets.GH_PACKAGES_TOKEN }}</password>
+                    </server>
+                  </servers>
+                </settings>' > $HOME/.m2/settings.xml
       - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots verify
-      - name: Copying the target jar into staging directory
-        run: mkdir staging && cp target/*jar staging
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Package
-          path: staging
+        run: mvn clean deploy
+      

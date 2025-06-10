@@ -85,4 +85,19 @@
 		</dependency>
  </dependencies>
 
+	<repositories>
+		<repository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/jossabdev/ms-core-sales-util</url>  <!-- Repositorio donde publicaste -->
+		</repository>
+	</repositories>
+
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/jossabdev/db-sales-system</url>
+		</repository>
+	</distributionManagement>
 </project>
