@@ -17,6 +17,21 @@ jobs:
           distribution: 'temurin'
           architecture: x64
           cache: maven
+      - name: Create libs directory
+        run: mkdir libs
+      - name: Download artifact ms-core-sales-utils
+        uses: actions/download-artifact@v4
+        with: 
+          name: Package
+          path: libs
+      - name: Install util jar manually
+        run: |
+          mvn install:install-file \
+            -Dfile=libs/ms-core-sales-util-0.0.1-RELEASE.jar \
+            -DgroupId=io.jscode \
+            -DartifactId=ms-core-sales-util \
+            -Dversion=0.0.1-RELEASE \
+            -Dpackaging=jar
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots verify
       - name: Copying the target jar into staging directory
